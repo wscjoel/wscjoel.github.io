@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel 的主页</title>
+    <!-- 引入 Tailwind CSS 以便快速构建美观的界面 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Inter 字体，这是一款优雅且易读的无衬线字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 自定义基础样式，应用 Inter 字体 */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- 页面容器，限制最大宽度并居中 -->
+    <div class="max-w-3xl mx-auto px-6 py-8 md:py-12 flex flex-col min-h-screen">
+
+        <!-- 顶部导航栏 -->
+        <header class="flex justify-between items-center pb-4 border-b border-slate-200">
+            <!-- 左侧网站标题 -->
+            <div class="text-lg font-bold">
+                <a href="#" class="hover:text-blue-500 transition-colors">Joel</a>
+            </div>
+            <!-- 右侧导航链接 -->
+            <nav class="text-slate-600 font-medium">
+                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">博客</a>
+                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">关于</a>
+                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">项目</a>
+            </nav>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <!-- 使用 flex-grow 让 main 区域填充可用空间，从而实现垂直居中 -->
+        <main class="flex-grow flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">这里是Joel，</h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600">欢迎来到我的个人主页。</p>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="py-8 text-center text-slate-500 text-sm">
+            <p>&copy; 2025 Joel. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
