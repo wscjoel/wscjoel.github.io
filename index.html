@@ -3,56 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joel 的主页</title>
-    <!-- 引入 Tailwind CSS 以便快速构建美观的界面 -->
+    <title>Joel's Blog</title>
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Inter 字体，这是一款优雅且易读的无衬线字体 -->
+    <!-- 引入 Inter 字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 自定义基础样式，应用 Inter 字体 */
         body {
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8fafc; /* 使用稍浅的灰色背景 */
+        }
+        /* 筛选按钮的激活状态 */
+        .filter-btn.active {
+            background-color: #2563eb;
+            color: white;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="text-slate-800">
 
-    <!-- 页面容器，限制最大宽度并居中 -->
-    <div class="max-w-3xl mx-auto px-6 py-8 md:py-12 flex flex-col min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- 顶部导航栏 -->
-        <header class="flex justify-between items-center pb-4 border-b border-slate-200">
-            <!-- 左侧网站标题 -->
-            <div class="text-lg font-bold">
-                <a href="#" class="hover:text-blue-500 transition-colors">Joel</a>
-            </div>
-            <!-- 右侧导航链接 -->
-            <nav class="text-slate-600 font-medium">
-                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">博客</a>
-                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">关于</a>
-                <a href="#" class="ml-6 hover:text-slate-900 transition-colors">项目</a>
-            </nav>
+        <!-- 顶部个人信息 -->
+        <header class="text-center">
+            <h1 class="text-4xl font-bold text-slate-900">Joel's Blog</h1>
+            <p class="mt-3 text-lg text-slate-600">欢迎来到我的空间。在这里分享技术、思考与生活。</p>
         </header>
 
-        <!-- 主要内容区域 -->
-        <!-- 使用 flex-grow 让 main 区域填充可用空间，从而实现垂直居中 -->
-        <main class="flex-grow flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">这里是Joel，</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600">欢迎来到我的个人主页。</p>
+        <!-- 主要内容 -->
+        <main class="mt-16">
+
+            <!-- 分类筛选 -->
+            <div id="filter-container" class="flex flex-wrap justify-center gap-2 mb-12">
+                <button class="filter-btn active px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="all">所有文章</button>
+                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="tech">技术</button>
+                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="life">生活</button>
+                <!-- 如果有新分类，在这里添加按钮 -->
+            </div>
+
+            <!-- 文章列表 -->
+            <div id="article-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- 文章 1: 技术/前端 -->
+                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="tech">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blue-600 uppercase">技术 / 前端</span>
+                        <h2 class="mt-2 text-xl font-bold text-slate-900">
+                            <a href="./posts/tech/frontend/my-first-post.html" class="hover:text-blue-600">我的第一篇技术博客</a>
+                        </h2>
+                        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                            这里是文章的简短描述。介绍这篇文章主要讲了什么内容，吸引读者点击阅读。
+                        </p>
+                        <p class="mt-4 text-xs text-slate-400">July 16, 2025</p>
+                    </div>
+                </article>
+
+                <!-- 文章 2: 生活/旅行 -->
+                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="life">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-green-600 uppercase">生活 / 旅行</span>
+                        <h2 class="mt-2 text-xl font-bold text-slate-900">
+                            <a href="./posts/life/travel/my-trip-to-japan.html" class="hover:text-green-600">日本旅行见闻</a>
+                        </h2>
+                        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                            记录这次去日本旅行的一些有趣见闻和心得体会，分享一些美食和风景。
+                        </p>
+                        <p class="mt-4 text-xs text-slate-400">June 10, 2025</p>
+                    </div>
+                </article>
+
+                <!-- 文章 3: 技术/后端 -->
+                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="tech">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blue-600 uppercase">技术 / 后端</span>
+                        <h2 class="mt-2 text-xl font-bold text-slate-900">
+                            <a href="./posts/tech/backend/another-post.html" class="hover:text-blue-600">Node.js 基础入门</a>
+                        </h2>
+                        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                            一篇关于 Node.js 的入门教程，帮助初学者快速上手，理解其核心概念。
+                        </p>
+                        <p class="mt-4 text-xs text-slate-400">July 15, 2025</p>
+                    </div>
+                </article>
+
+                <!-- 在这里添加更多文章... -->
+
             </div>
         </main>
 
         <!-- 页脚 -->
-        <footer class="py-8 text-center text-slate-500 text-sm">
-            <p>&copy; 2025 Joel. All Rights Reserved.</p>
+        <footer class="mt-20 text-center text-slate-500 text-sm">
+            <p>&copy; 2025 Joel's Blog. All Rights Reserved.</p>
         </footer>
-
     </div>
+
+    <script>
+        // 文章筛选功能的 JavaScript 代码
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const articleItems = document.querySelectorAll('.article-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 获取点击的按钮的 data-filter 属性值
+                    const filter = this.dataset.filter;
+
+                    // 更新按钮的激活状态
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 遍历所有文章并根据筛选条件显示或隐藏
+                    articleItems.forEach(item => {
+                        const category = item.dataset.category;
+                        if (filter === 'all' || filter === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
