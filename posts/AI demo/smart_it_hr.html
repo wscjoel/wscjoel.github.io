@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 文章标题会在这里替换 -->
-    <title>文章标题 - Joel's Blog</title>
+    <title>JobPilot AI 产品需求文档 - Joel's Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +63,21 @@
         .article-content pre code {
             border-radius: 0.5rem;
         }
+        /* 表格样式 */
+        .article-content table {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-collapse: collapse;
+        }
+        .article-content th, .article-content td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .article-content th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -72,53 +87,237 @@
         <!-- 返回主页的链接 -->
         <div class="mb-8">
             <a href="../../index.html" class="text-blue-600 hover:underline">&larr; 返回主页</a>
-            <!-- 注意：这里的 ../../ 是根据文件在三级目录下计算的，如果目录层级不同，需要调整 -->
         </div>
 
         <!-- 文章头部 -->
         <header>
             <!-- 文章分类信息 -->
-            <p class="text-sm font-semibold text-blue-600">技术 / 前端</p>
+            <p class="text-sm font-semibold text-blue-600">产品文档 / AI 应用</p>
             <!-- 文章标题 -->
-            <h1 class="mt-2 text-4xl font-bold text-slate-900">在这里写下你的文章标题</h1>
+            <h1 class="mt-2 text-4xl font-bold text-slate-900">JobPilot AI - 产品需求文档 (PRD)</h1>
             <!-- 文章元数据 -->
-            <p class="mt-4 text-sm text-slate-500">发布于: July 16, 2025 / 作者: Joel</p>
+            <p class="mt-4 text-sm text-slate-500">最后更新于: July 17, 2025 / 作者: Joel</p>
         </header>
         
         <hr class="my-8">
 
         <!-- 文章正文 -->
         <article class="article-content">
-            <h2>这是一个二级标题</h2>
-            <p>
-                这是文章的第一段。你可以自由地在这里写作。我们已经为您设置好了基本的排版样式，包括段落、标题、列表、引用等。
-            </p>
-            <p>
-                Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum.
-            </p>
             
-            <h3>这是一个三级标题</h3>
+            <!-- 文档版本信息表格 -->
+            <table class="text-sm">
+                <tbody>
+                    <tr>
+                        <th class="w-1/4">文档版本</th>
+                        <td>V1.0</td>
+                        <th class="w-1/4">状态</th>
+                        <td>草案</td>
+                    </tr>
+                    <tr>
+                        <th>创建日期</th>
+                        <td>2025年7月12日</td>
+                        <th>创建人</th>
+                        <td>Joel</td>
+                    </tr>
+                    <tr>
+                        <th>最后更新</th>
+                        <td>2025年7月17日</td>
+                        <th>更新人</th>
+                        <td>Joel</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>1. 产品概述 (Product Overview)</h2>
+            <h3>1.1 项目背景</h3>
+            <p>对于在英国求职的留学生而言，我们面临着双重信息壁垒。一方面，我们需要解读充斥着行业术语和隐性要求的冗长职位描述（JD），尤其很多岗位以及个人能力是英国或者中国独有的，国家之间的就业市场有着不可忽视的信息差；另一方面，我们对本地公司的文化、声誉、规模乃至最重要的——签证担保历史（Visa Sponsorship History）——知之甚少。这种信息不对称导致我们投递简历时感到迷茫和焦虑，申请效率低下，并常常错失良机。</p>
+            <p><strong>产品愿景</strong>：构建一款拥有自主分析能力的智能体，尤其能够将岗位描述转化为清晰的业务能力和技术栈，并通过调用工具，尽可能全方位的辅助用户求职，后期如果知识库足够，也可以为学生提供面试准备等帮助。</p>
+            
+            <h3>1.2 目标用户 (Target Users)</h3>
+            <p>我们的产品主要服务于以下两类早期核心用户：</p>
             <ul>
-                <li>列表项目一</li>
-                <li>列表项目二</li>
-                <li>列表项目三</li>
+                <li><strong>在英求职的中国留学生</strong>：特别是攻读STEM、商科等热门专业的本科、硕士及博士生。</li>
+                <li><strong>英国的国际学生职业发展中心</strong>：需要更高效的工具来指导和赋能大量的中国留学生。</li>
             </ul>
 
-            <blockquote>
-                这是一个引用块。适合引用名言或者突出显示某些重要信息。
-            </blockquote>
+            <h3>1.3 核心价值主张 (Core Value Proposition)</h3>
+            <p>我们为国际学生提供<strong>一站式的职位与公司深度洞察能力</strong>。通过AI智能体，我们将冗长复杂的JD转化为结构化的核心要求清单，并通过实时网络搜索，提供关于公司的关键情报（包括规模、文化、业务范围和签证担保历史），帮助学生<strong>精准定位机会、高效准备申请、自信面对面试</strong>，从而在激烈的求职竞争中脱颖而出。</p>
 
-            <p>
-                下面是一个代码块的例子，我们使用了 <a href="https://highlightjs.org/">highlight.js</a> 来实现代码高亮，支持多种语言。
-            </p>
+            <h2>2. 市场与用户调研 (Market & User Research)</h2>
+            <h3>2.1 市场分析</h3>
+            <ul>
+                <li><strong>激烈的竞争环境</strong>: 英国是全球最受国际学生欢迎的目的地之一，2022/23学年有超过68万名国际学生。然而，毕业后的就业市场竞争异常激烈。最新的数据显示，尽管有毕业生签证提供两年的留英工作机会，但只有不到40%的国际毕业生能在此签证到期前找到能担保技术工人签证（Skilled Worker visa）的长期工作。这凸显了找到一份“合格的”工作并实现长期留英的巨大挑战。</li>
+                <li><strong>签证担保</strong>: 对于留学生而言，一个公司的“是否提供签证担保”、“硬性要求”等是决定性的筛选条件。然而，这一信息往往是不透明的。虽然英国内政部公布了超过99,000家有担保资质的公司名单，但这个名单庞大且不提供公司规模、行业或过往担保历史等关键上下文。学生们往往需要花费大量时间在不同平台交叉验证，或者在面试后期才发现公司不提供担保，浪费了宝贵的时间和精力。</li>
+                <li><strong>现有工具的局限性</strong>:
+                    <ul>
+                        <li><strong>通用求职平台 (LinkedIn, Indeed)</strong>: 这些平台拥有海量的职位信息，但它们的筛选功能对于“签证担保”这一关键需求支持非常有限，且不会对JD内容进行深度解析。</li>
+                        <li><strong>大学职业中心</strong>: 虽然提供了宝贵的指导，但往往资源有限，无法为每一位学生提供针对具体职位和公司的个性化、深度分析服务。</li>
+                    </ul>
+                </li>
+                <li><strong>我们的机会</strong>: 市场上存在一个明确的空白——缺少一个能将**“职位要求深度解析”与“公司（特别是签证担保）背景情报”**相结合的工具，来系统性地解决留学生面临的信息不对称问题。</li>
+            </ul>
 
-            <pre><code class="language-javascript">// 这是一个 JavaScript 代码示例
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
+            <h3>2.2 用户痛点 (User Pain Points)</h3>
+            <ol>
+                <li><strong>职位要求的“解码”困境</strong>: 留学生不仅要面对技术术语的壁垒，还要理解英国特有的业务语境和对“软技能”的描述方式。例如，JD中常见的“commercial awareness”或“resilience”等词汇，其在英国职场中的具体含义和考察方式，对于缺乏本地经验的学生来说是模糊的。这导致他们无法准确判断自己是否匹配，也难以在简历和面试中有效展示自己。</li>
+                <li><strong>公司背景的“情报”缺失</strong>: 面对一个不熟悉的英国公司，留学生很难快速评估其是否是一个好的选择。他们最关心的问题——“这家公司去年担保了多少像我这样的毕业生？”、“它在行业内的真实声誉如何？”、“它的工作文化是否适合国际员工？”——往往难以通过公开渠道快速获得。这种信息缺失让他们在选择投递目标时如同“盲人摸象”。</li>
+                <li><strong>申请过程的“无效”投入</strong>: 由于上述两个痛点，学生们常常将大量时间投入到那些“注定失败”的申请上。他们可能花数小时为一个其实并不匹配的职位定制简历，或者为一个根本不提供签证担保的公司准备面试。这种无效投入不仅浪费时间，更严重打击了他们在漫长求职过程中的信心和士气。</li>
+                <li><strong>面试准备的“迷航”状态</strong>: 即使获得了面试机会，学生们也常常因为不了解公司的具体业务和文化，导致在面试中表现得像个“局外人”。他们无法提出有深度的问题，也难以将自己的经历与公司的实际需求联系起来，从而在竞争中处于不利地位。</li>
+            </ol>
+            
+            <h2>3. 产品需求 (Product Requirements)</h2>
+            <h3>3.1 最小可行产品 (MVP)</h3>
+            <p>MVP阶段的核心目标是验证“AI智能体辅助留学生求职”这一核心价值。我们将构建一个Web应用，并优先开发浏览器插件，实现与主流求职网站的初步集成。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>功能模块</th>
+                        <th>功能点</th>
+                        <th>详细描述</th>
+                        <th>优先级</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><strong>1. 核心职位解析 (Core Job Deconstruction)</strong></td>
+                        <td>1.1 JD结构化拆解</td>
+                        <td>用户粘贴JD文本后，系统自动将其解析为清晰的结构化模块，如“关键术语及对应解释”，解决JD冗长难读的问题。</td>
+                        <td>P0</td>
+                    </tr>
+                    <tr>
+                        <td>1.2 关键要求释义</td>
+                        <td>自动高亮JD中的关键技术术语和英国职场特有的软技能要求（如commercial awareness）。用户点击后，提供通俗易懂的解释和相关的学习资源链接。</td>
+                        <td>P0</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>2. 公司情报速览 (Company Intelligence Briefing)</strong></td>
+                        <td>2.1 公司背景自动抓取</td>
+                        <td>智能体自动识别公司名称，并通过搜索引擎爬取关键信息，包括公司官网、规模、行业地位和近期新闻。</td>
+                        <td>P0</td>
+                    </tr>
+                    <tr>
+                        <td>2.2 签证担保历史查询</td>
+                        <td>（留学生关键功能） 智能体自动在英国内政部官网的担保资质公司名单中核查该公司，并展示其是否具备签证担保资格。</td>
+                        <td>P0</td>
+                    </tr>
+                     <tr>
+                        <td rowspan="2"><strong>3. 申请策略辅助 (Application Strategy Support)</strong></td>
+                        <td>3.1 个人技能匹配度分析</td>
+                        <td>用户可输入自己的核心技能，系统会将其与JD中的“必备技能”和“加分项”进行比对，生成一个可视化的匹配度报告，帮助用户快速判断申请价值。</td>
+                        <td>P1</td>
+                    </tr>
+                    <tr>
+                        <td>3.2 定制化面试问题预测</td>
+                        <td>基于JD的核心要求，预测面试中可能被问到的高频问题（技术和行为问题），并提供回答思路和范例。</td>
+                        <td>P1</td>
+                    </tr>
+                </tbody>
+            </table>
 
-greet('World');
-</code></pre>
+            <h3>3.2 V2及未来版本规划</h3>
+            <p><strong>V2.0 - 深度求职辅助 (Advanced Job-Seeking Support)</strong>:</p>
+            <ul>
+                <li><strong>简历与JD智能匹配与优化建议</strong>: 支持用户上传简历，AI不仅进行语义匹配度打分，更能提供具体的、可操作的优化建议。例如：“建议在简历中补充一个能体现你Python for data analysis能力的项目，以更好地匹配此职位的核心要求。”</li>
+                <li><strong>便捷工作流集成</strong>: 开发Chrome浏览器插件。当用户在LinkedIn、Indeed等主流求职网站上浏览职位时，可一键激活侧边栏，直接在页面上获取该职位的解析报告和公司情报。</li>
+                <li><strong>薪酬与福利对标分析</strong>: 基于JD的职位、级别和地点，结合实时市场数据，提供一个详细的薪酬范围分析（包括基本工资、奖金和股权），并与英国同行业毕业生的平均水平进行对标。</li>
+            </ul>
+            <p><strong>长期愿景 (V3.0+) - 全周期求职生态 (Full-Lifecycle Career Ecosystem)</strong>:</p>
+            <ul>
+                <li><strong>社区化情报网络</strong>: 建立一个用户可以匿名分享面试经验、公司文化评价和签证申请结果的社区。AI智能体能够聚合和分析这些UGC（用户生成内容）数据，为其他用户提供更真实、更深度的“内部情报”，例如：“近三个月，该公司在担保软件工程师职位上成功率为80%。”</li>
+                <li><strong>个性化职业路径规划</strong>: 基于用户的个人资料、技能和兴趣，结合平台积累的职位数据，AI可以为用户推荐潜在的职业发展路径，识别技能差距，并建议在英国可以学习的相关课程或考取的认证。</li>
+                <li><strong>签证与政策智能助手</strong>: Agent可以主动追踪英国移民政策的变化，当有新政策发布时（如毕业生签证政策调整），能主动向受影响的用户推送预警和解读。</li>
+            </ul>
+
+            <h2>4. 实现</h2>
+            <h3>大语言模型（LLM）选型与微调</h3>
+            <ul>
+                <li><strong>基础模型</strong>: 选择一个性能强大且对微调友好的开源模型作为基础。 Qwen2.5-14B 是一个优秀的选择，在代码理解和多语言方面表现出色。</li>
+                <li><strong>微调技术 (Fine-tuning)</strong>:
+                    <ul>
+                        <li>采用<strong>参数高效微调（PEFT）技术，特别是LoRA (Low-Rank Adaptation)</strong>。这允许我们仅训练模型极小部分（约0.5%）的参数，就能使其适应我们的特定任务（JD解析）。</li>
+                        <li>使用unsloth库进行微调，该库能显著提高训练速度（2倍）并大幅降低显存占用（最高可达80%），使得在单张Tesla T4等消费级/免费GPU上微调14B模型成为可能。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>4.1 数据集准备与策略</h3>
+            <p>高质量的训练数据是构建产品护城河的关键。</p>
+            <ul>
+                <li><strong>数据来源</strong>: 1000条左右英文合规职位描述</li>
+                <li><strong>数据生成流程</strong>:
+                    <ul>
+                        <li>在`Groq`上利用闭源模型（如Llama 3-70B ）作为“教师”，让它根据我的prompt进行生成严格的JSON样本。包含了以下几个关键字段：
+                            <ul>
+                                <li>role_summary: 用通俗易懂的语言对职位进行总结。</li>
+                                <li>key_terms: 解释JD中的技术术语，帮助非技术背景的HR理解。</li>
+                                <li>skill_priorities: 将技能区分为“必须具备 (must_have)”和“最好具备 (nice_to_have)”。</li>
+                                <li>proposed_screening_questions_with_answers: 生成有针对性的面试问题和参考答案。</li>
+                                <li>red_flags: 提出潜在的风险点，比如“需要警惕没有云平台经验的候选人”。</li>
+                                <li>confidence_score: 模型对自己分析结果的置信度打分。</li>
+                            </ul>
+                        </li>
+                        <li><strong>使用Pydantic进行验证</strong>: 为了确保AI输出的JSON格式100%正确，代码使用了pydantic库。Pydantic可以根据预定义的类（如JobAnalysis, KeyTerm等）来严格验证AI返回的数据结构，如果格式不对，程序就会报错。</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>4.2 模型微调</h3>
+            <p>使用unsloth库中的FastLanguageModel来加载unsloth/Qwen2.5-14B模型。模型通过4位量化（load_in_4bit = True）的方式加载，以最大限度地减少内存消耗。通过调用FastLanguageModel.get_peft_model应用了PEFT（参数高效微调）技术中的LoRA（低秩适配）。这样，它无需训练全部的140亿个参数，而仅仅训练一小部分的“适配器”层。</p>
+            <p>加载格式化好的数据集和prompt（告知系统角色和期望输出），设置trl库中的SFTTrainer（监督微调训练器）的训练参数开始微调。</p>
+            <p>在Tesla T4 GPU上的整个训练过程大约耗时65.35分钟。</p>
+            <p><strong>保存LoRA适配器</strong>：本地保存并推送到Hugging Face Hub。需要注意的是，这只保存了训练好的、小体积的LoRA适配器，而不是整个140亿参数的基础模型。</p>
+
+            <h3>4.3 智能体（Agent）与RAG架构</h3>
+            <p>为了进一步扩展LLM知识来源，我们将模型封装在一个智能体（Agent）框架中。</p>
+            <ul>
+                <li><strong>工具箱 (Toolbox)</strong>: 为Agent提供可以调用的外部工具：
+                    <ul>
+                        <li>`duckduckgo_search`: 用于实时网络搜索，处理未知的新技术。</li>
+                        <li>`get_url_content`: 用于深入阅读搜索结果中的特定网页。</li>
+                    </ul>
+                </li>
+                <li><strong>运行逻辑</strong>: Agent采用**RAG (Retrieval-Augmented Generation)**模式。当面对用户输入时，它会先判断是否需要调用工具。如果需要，它会执行搜索、获取信息，然后将这些外部信息与自身知识结合，生成最终的、更可靠的答案。</li>
+            </ul>
+
+            <h3>4.4 部署与服务</h3>
+            <ul>
+                <li><strong>后端</strong>: 使用Python构建，并利用groq或unsloth的推理引擎来提供快速的模型服务。</li>
+                <li><strong>前端/Demo</strong>: 使用Gradio快速搭建和迭代产品原型，用于内部测试和早期用户演示。</li>
+                <li><strong>云服务</strong>: 部署在AWS或GCP等主流云平台上，利用其GPU实例和可扩展的基础设施。</li>
+            </ul>
+            
+            <h2>5. 风险评估与合规性 (Risks & Compliance)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>风险类别</th>
+                        <th>具体风险</th>
+                        <th>缓解措施</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>信息准确性风险</strong></td>
+                        <td>AI提供的公司情报（特别是签证担保状态）或职位要求解读不准确，可能误导学生做出错误决策，浪费申请时间。</td>
+                        <td>1. 采用RAG架构，建立知识库，确保关键信息（如签证资质）直接从权威来源。 2. 在UI中清晰展示信息来源链接和最后更新时间。 3. 建立一键反馈“信息有误”，并利用用户反馈持续优化。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户数据隐私风险</strong></td>
+                        <td>用户上传的简历、个人技能和求职偏好等敏感个人数据被泄露或滥用。</td>
+                        <td>1. 采用严格的端到端加密和安全的云存储。 2. 制定清晰、易懂的隐私政策，明确告知数据用途，并承诺绝不与第三方分享个人数据。 3. 遵循GDPR的数据最小化原则，只收集实现功能所必需的信息。 4. 提供便捷的数据下载、删除和账户注销功能。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>过度依赖与误用风险</strong></td>
+                        <td>学生可能过度依赖AI的匹配度分数而放弃尝试有潜力的机会，或在面试中机械地复述AI生成的答案，反而显得不真诚。</td>
+                        <td>1. 在产品中明确强调AI仅为“辅助决策工具”，最终判断需由用户自己做出。 2. 提供的面试建议侧重于“思路启发”而非“标准答案”，并提示用户结合自身经历进行个性化表达。 3. 通过教程和提示，教育用户如何批判性地使用AI建议。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>服务可用性与成本风险</strong></td>
+                        <td>作为一个免费或低成本工具，在求职高峰期可能因服务器过载而无法使用，或者未来转为昂贵的付费模式，让学生无法负担。</td>
+                        <td>1. 采用可扩展的云架构（如Serverless）应对流量高峰。 2. 承诺提供一个永久免费的基础版本（Freewmium），确保核心功能对所有学生开放。 3. 付费模式将专注于提供高级增值服务（如无限次简历优化、深度面试模拟），而非限制核心功能。</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </article>
 
