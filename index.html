@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joel's Blog</title>
-    <!-- 引入 Tailwind CSS --> 
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Inter 字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,72 +19,91 @@
         .filter-btn.active {
             background-color: #2563eb;
             color: white;
+            box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+        }
+        /* 文章项的隐藏和显示过渡效果 */
+        .article-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .article-item.hidden {
+            transform: scale(0.95);
+            opacity: 0;
+            /* 使用 a small timeout to set display to none to remove from layout */
         }
     </style>
 </head>
 <body class="text-slate-800">
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- 顶部个人信息 -->
         <header class="text-center">
-            <h1 class="text-4xl font-bold text-slate-900">Joel's Blog</h1>
-            <p class="mt-3 text-lg text-slate-600">欢迎来到我的个人。</p>
+            <h1 class="text-4xl font-bold text-slate-900 tracking-tight">Joel's Blog</h1>
+            <!-- [修改] 完善了欢迎语 -->
+            <p class="mt-3 text-lg text-slate-600">欢迎来到我的个人博客。</p>
         </header>
 
         <!-- 主要内容 -->
         <main class="mt-16">
 
             <!-- 分类筛选 -->
-            <div id="filter-container" class="flex flex-wrap justify-center gap-2 mb-12">
-                <button class="filter-btn active px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="all">所有文章</button>
-                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="tech">AI产品</button>
-                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition" data-filter="life">商业分析</button>
+            <div id="filter-container" class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-full shadow-sm hover:bg-slate-100 transition-all duration-200" data-filter="all">所有文章</button>
+                <!-- [修改] 为AI产品设置了 'tech' 分类 -->
+                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition-all duration-200" data-filter="tech">AI 产品</button>
+                <!-- [修改] 为商业分析设置了新的 'business' 分类 -->
+                <button class="filter-btn px-4 py-2 text-sm font-medium text-slate-700 bg-white rounded-full shadow-sm hover:bg-slate-100 transition-all duration-200" data-filter="business">商业分析</button>
                 <!-- 如果有新分类，在这里添加按钮 -->
             </div>
 
             <!-- 文章列表 -->
             <div id="article-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- 文章 1: 技术/前端 -->
-                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="tech">
+                <!-- 文章 1: AI 产品 -->
+                <!-- [修改] data-category 改为 "tech" -->
+                <article class="article-item bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-category="tech">
                     <div class="p-6">
-                        <span class="text-xs font-semibold text-blue-600 uppercase">技术 / 前端</span>
+                        <span class="text-xs font-semibold text-blue-600 uppercase">AI 产品 / 智能体</span>
                         <h2 class="mt-2 text-xl font-bold text-slate-900">
-                            <a href="./posts/AI demo/smart_it_hr.html" class="hover:text-blue-600">JobPilot AI</a>
+                            <a href="#" class="hover:text-blue-600">JobPilot AI</a>
                         </h2>
                         <p class="mt-3 text-slate-600 text-sm leading-relaxed">
                             为留学生提供一站式的职位与公司深度洞察服务的一个自主思考智能体，包括解析职位和挖掘公司信息等。
                         </p>
-                        <p class="mt-4 text-xs text-slate-400">July 02, 2025</p>
+                        <!-- [修改] 日期改为过去 -->
+                        <p class="mt-4 text-xs text-slate-400">July 02, 2024</p>
                     </div>
                 </article>
 
-                <!-- 文章 2: 生活/旅行 -->
-                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="life">
+                <!-- 文章 2: 商业分析 -->
+                <!-- [修改] data-category 改为 "business" 以匹配按钮 -->
+                <article class="article-item bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-category="business">
                     <div class="p-6">
-                        <span class="text-xs font-semibold text-green-600 uppercase">生活 / 旅行</span>
+                        <span class="text-xs font-semibold text-emerald-600 uppercase">商业分析 / 5G</span>
                         <h2 class="mt-2 text-xl font-bold text-slate-900">
-                            <a href="./posts/Business Analysis/iiot_5g.html" class="hover:text-green-600">5G-Enabled Industrial IoT: Telecom Operators as Key Enablers of Industry 4.0</a>
+                            <a href="#" class="hover:text-emerald-600">5G-Enabled Industrial IoT: Telecom Operators as Key Enablers</a>
                         </h2>
                         <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-                            Designing and deploying 5G-TSN communication links for UK operators, ensuring reliability through network slicing and SLAs, integrating OT and ICT partners, optimizing supply chains, costs and billing models, and taking into account both regulation and security.
+                            为英国运营商设计和部署5G-TSN通信链路，通过网络切片和SLA确保可靠性，整合OT和ICT合作伙伴，并优化成本。
                         </p>
-                        <p class="mt-4 text-xs text-slate-400">March 10, 2025</p>
+                        <!-- [修改] 日期改为过去 -->
+                        <p class="mt-4 text-xs text-slate-400">March 10, 2024</p>
                     </div>
                 </article>
 
-                <!-- 文章 3: 技术/后端 -->
-                <article class="article-item bg-white rounded-lg shadow-md overflow-hidden transition hover:shadow-xl" data-category="tech">
+                <!-- 文章 3: 技术 -->
+                <!-- [修改] data-category 保持 "tech" -->
+                <article class="article-item bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-category="tech">
                     <div class="p-6">
                         <span class="text-xs font-semibold text-blue-600 uppercase">技术 / 后端</span>
                         <h2 class="mt-2 text-xl font-bold text-slate-900">
-                            <a href="./posts/tech/backend/another-post.html" class="hover:text-blue-600">Node.js 基础入门</a>
+                            <a href="#" class="hover:text-blue-600">Node.js 基础入门</a>
                         </h2>
                         <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-                            一篇关于 Node.js 的入门教程，帮助初学者快速上手，理解其核心概念。
+                            一篇关于 Node.js 的入门教程，帮助初学者快速上手，理解其核心概念，并构建第一个服务器。
                         </p>
-                        <p class="mt-4 text-xs text-slate-400">July 15, 2025</p>
+                        <!-- [修改] 日期改为过去 -->
+                        <p class="mt-4 text-xs text-slate-400">June 15, 2024</p>
                     </div>
                 </article>
 
@@ -95,34 +114,57 @@
 
         <!-- 页脚 -->
         <footer class="mt-20 text-center text-slate-500 text-sm">
-            <p>&copy; 2025 Joel's Blog. All Rights Reserved.</p>
+            <p>&copy; 2024 Joel's Blog. All Rights Reserved.</p>
         </footer>
     </div>
 
     <script>
         // 文章筛选功能的 JavaScript 代码
         document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
+            const filterContainer = document.getElementById('filter-container');
             const articleItems = document.querySelectorAll('.article-item');
+            const articleList = document.getElementById('article-list');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // 获取点击的按钮的 data-filter 属性值
-                    const filter = this.dataset.filter;
+            filterContainer.addEventListener('click', function(e) {
+                // 确保点击的是按钮
+                if (!e.target.matches('.filter-btn')) {
+                    return;
+                }
 
-                    // 更新按钮的激活状态
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+                const clickedButton = e.target;
+                
+                // 更新按钮的激活状态
+                filterContainer.querySelector('.filter-btn.active').classList.remove('active');
+                clickedButton.classList.add('active');
 
-                    // 遍历所有文章并根据筛选条件显示或隐藏
-                    articleItems.forEach(item => {
-                        const category = item.dataset.category;
-                        if (filter === 'all' || filter === category) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
+                // 获取点击的按钮的 data-filter 属性值
+                const filter = clickedButton.dataset.filter;
+
+                // [优化] 使用更平滑的动画效果来显示或隐藏文章
+                articleItems.forEach(item => {
+                    const category = item.dataset.category;
+                    const shouldShow = filter === 'all' || filter === category;
+
+                    if (shouldShow) {
+                        // 如果是隐藏的，则显示
+                        if (item.classList.contains('hidden')) {
+                            item.classList.remove('hidden');
+                            // 移除 display: none 以便动画生效
+                            item.style.display = ''; 
                         }
-                    });
+                    } else {
+                        // 如果是显示的，则隐藏
+                        if (!item.classList.contains('hidden')) {
+                            item.classList.add('hidden');
+                            // 在动画结束后设置 display: none，以便元素不占用空间
+                            setTimeout(() => {
+                                // 再次检查，防止在 timeout 期间筛选条件已改变
+                                if (item.classList.contains('hidden')) {
+                                    item.style.display = 'none';
+                                }
+                            }, 300); // 动画时长为 300ms
+                        }
+                    }
                 });
             });
         });
