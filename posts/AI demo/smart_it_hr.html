@@ -96,7 +96,7 @@
             <!-- 文章标题 -->
             <h1 class="mt-2 text-4xl font-bold text-slate-900">JobPilot AI - 产品需求文档 (PRD)</h1>
             <!-- 文章元数据 -->
-            <p class="mt-4 text-sm text-slate-500">最后更新于: July 17, 2025 / 作者: Joel</p>
+            <p class="mt-4 text-sm text-slate-500">最后更新于: July 25, 2024 / 作者: Joel</p>
         </header>
         
         <hr class="my-8">
@@ -115,13 +115,13 @@
                     </tr>
                     <tr>
                         <th>创建日期</th>
-                        <td>2025年7月12日</td>
+                        <td>2024年7月12日</td>
                         <th>创建人</th>
                         <td>Joel</td>
                     </tr>
                     <tr>
                         <th>最后更新</th>
-                        <td>2025年7月17日</td>
+                        <td>2024年7月25日</td>
                         <th>更新人</th>
                         <td>Joel</td>
                     </tr>
@@ -142,6 +142,17 @@
 
             <h3>1.3 核心价值主张 (Core Value Proposition)</h3>
             <p>我们为国际学生提供<strong>一站式的职位与公司深度洞察能力</strong>。通过AI智能体，我们将冗长复杂的JD转化为结构化的核心要求清单，并通过实时网络搜索，提供关于公司的关键情报（包括规模、文化、业务范围和签证担保历史），帮助学生<strong>精准定位机会、高效准备申请、自信面对面试</strong>，从而在激烈的求职竞争中脱颖而出。</p>
+            
+            <!-- [新增] 产品界面截图 -->
+            <figure class="my-8">
+                <img class="w-full h-auto rounded-xl shadow-lg border border-slate-200" 
+                     src="posts/img/demo screensho.jpg" 
+                     alt="JobPilot AI 产品界面截图"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x450/e2e8f0/475569?text=产品截图加载失败';">
+                <figcaption class="mt-3 text-sm text-center text-slate-500">
+                    图1: 产品界面预览
+                </figcaption>
+            </figure>
 
             <h2>2. 市场与用户调研 (Market & User Research)</h2>
             <h3>2.1 市场分析</h3>
@@ -164,12 +175,18 @@
                 <li><strong>申请过程的“无效”投入</strong>: 由于上述两个痛点，学生们常常将大量时间投入到那些“注定失败”的申请上。他们可能花数小时为一个其实并不匹配的职位定制简历，或者为一个根本不提供签证担保的公司准备面试。这种无效投入不仅浪费时间，更严重打击了他们在漫长求职过程中的信心和士气。</li>
                 <li><strong>面试准备的“迷航”状态</strong>: 即使获得了面试机会，学生们也常常因为不了解公司的具体业务和文化，导致在面试中表现得像个“局外人”。他们无法提出有深度的问题，也难以将自己的经历与公司的实际需求联系起来，从而在竞争中处于不利地位。</li>
             </ol>
-            <figure>
-                <img class="w-full h-auto rounded-xl shadow-lg border border-slate-200" src="../img/Agent执行流程.jpg" alt="AI智能体执行流程图">
+            
+            <!-- [修改] 替换为新的架构图 -->
+            <figure class="my-8">
+                <img class="w-full h-auto rounded-xl shadow-lg border border-slate-200" 
+                     src="posts/img/finetune architechture.jpg" 
+                     alt="模型微调与智能体架构图"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x500/e2e8f0/475569?text=架构图加载失败';">
                 <figcaption class="mt-3 text-sm text-center text-slate-500">
-                    图1: LLaMA 4 Scout 决策 + 多工具并行协作架构
+                    图2: 模型微调与智能体 (Agent) 架构
                 </figcaption>
             </figure>
+            
             <h2>3. 产品需求 (Product Requirements)</h2>
             <h3>3.1 最小可行产品 (MVP)</h3>
             <p>MVP阶段的核心目标是验证“AI智能体辅助留学生求职”这一核心价值。我们将构建一个Web应用，并优先开发浏览器插件，实现与主流求职网站的初步集成。</p>
